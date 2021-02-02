@@ -10,6 +10,7 @@ let package = Package(
         .library(name: "libpam", targets: ["libpam"]),
         .library(name: "pam_localauth", type: .dynamic, targets: ["pam_localauth"]),
         .executable(name: "LocalAuthenticationHelper", targets: ["LocalAuthenticationHelper"]),
+        .executable(name: "PAMTester", targets: ["PAMTester"]),
         // .executable(name: "Install", targets: ["Install"])
     ],
     dependencies: [
@@ -22,6 +23,7 @@ let package = Package(
         .systemLibrary(name: "libpam"),
         .target(name: "pam_localauth", dependencies: ["libpam"], linkerSettings: [.linkedLibrary("pam")]),
         .target(name: "LocalAuthenticationHelper", dependencies: ["pam_localauth", "libpam"]),
+        .target(name: "PAMTester", dependencies: ["libpam"]),
         // .target(name: "Install", dependencies: [])
     ]
 )

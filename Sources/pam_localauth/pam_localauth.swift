@@ -49,7 +49,7 @@ func pam_sm_authenticate(
     }
 
     guard checkConsoleOwnedBy(user: uid) && checkTerminalInteractive() else {
-        return Int32(PAM_AUTH_ERR)
+        return Int32(PAM_CONV_ERR)
     }
 
     guard performBiometricAuthentication() else {

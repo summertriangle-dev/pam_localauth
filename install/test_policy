@@ -1,0 +1,2 @@
+# test_localauth
+auth       required     /Library/pam_localauth/libpam_localauth.dylib
